@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router';
-import Home  from './components/dashboard/home';
+import {BrowserRouter, Route, Switch} from 'react-router-dom';
+import Home  from './components/home/home';
 
-export default class App extends Component {
-  static displayName = App.name;
-
-  render () {
-    return (
-        <Route exact path='/' component={Home} />
-    );
-  }
+const App = () => {
+  return (
+      <Switch>
+          <Route path='/' component={Home} />
+      </Switch>
+  )
 }
+
+export default App;
