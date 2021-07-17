@@ -1,11 +1,16 @@
 import React, {} from 'react';
 
 import './home.xs.css'
+import TicketList from "../tickets/ticket-list/ticket-list";
 
 const Home = (props) => {
     return (
         <>
-            <h1>Home</h1>
+            <div className='home'>
+                <div className=''>
+                    <TicketList />
+                </div>
+            </div>
         </>
     );
 }
