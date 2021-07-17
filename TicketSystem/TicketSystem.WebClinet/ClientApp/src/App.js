@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router';
-import Home  from './components/home';
+import Home  from './components/dashboard/home';
 
 export default class App extends Component {
   static displayName = App.name;
