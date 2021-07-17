@@ -1,0 +1,16 @@
+.sign-in {
+  li {
+	list-style: none;
+	display: flex;
+	
+	a {
+	  text-decoration: none;
+	}
+  }
+  
+  .profile {
+	background-color: red;
+	padding: 1rem;
+	border-radius: 50%;
+  }
+}
