@@ -6,7 +6,7 @@ import './signInLink.xs.css'
 const SignInLink = (props) => {
     return (
         <>
-            <ul className='sign-in d-flex d-flex w-100 justify-content-end align-items-center'>
+            <ul className='sign-in-link d-flex d-flex w-100 justify-content-end align-items-center'>
                 <li className=''>
                     <NavLink to='/' >New Ticket</NavLink>
                 </li>

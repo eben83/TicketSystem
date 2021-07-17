@@ -1,10 +1,10 @@
-.sign-in li {
+.sign-in-link li {
   list-style: none;
   display: flex; }
-  .sign-in li a {
+  .sign-in-link li a {
     text-decoration: none; }
 
-.sign-in .profile {
+.sign-in-link .profile {
   background-color: red;
   padding: 1rem;
   border-radius: 50%; }
