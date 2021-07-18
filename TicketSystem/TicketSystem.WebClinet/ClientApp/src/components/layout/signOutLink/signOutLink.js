@@ -1,7 +1,11 @@
 import React, {} from 'react';
 import {NavLink} from "react-router-dom";
 
-import './signOutLink.css'
+import './signOutLink.xs.css'
+import './signOutLink.sm.css'
+import './signOutLink.md.css'
+import './signOutLink.lg.css'
+import './signOutLink.xl.css'
 
 const SignOutLink = (props) => {
     return (
