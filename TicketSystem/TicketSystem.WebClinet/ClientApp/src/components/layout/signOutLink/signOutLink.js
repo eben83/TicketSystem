@@ -8,7 +8,7 @@ const SignOutLink = (props) => {
         <>
             <ul className='sign-out d-flex w-100 justify-content-end align-items-center'>
                 <li>
-                    <NavLink to='/'>Login</NavLink>
+                    <NavLink to='/signin'>Login</NavLink>
                 </li>
             </ul>
         </>

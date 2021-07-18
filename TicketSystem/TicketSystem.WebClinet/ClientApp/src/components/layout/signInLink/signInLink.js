@@ -8,7 +8,7 @@ const SignInLink = (props) => {
         <>
             <ul className='sign-in-link d-flex d-flex w-100 justify-content-end align-items-center'>
                 <li className=''>
-                    <NavLink to='/' >New Ticket</NavLink>
+                    <NavLink to='/create' >New Ticket</NavLink>
                 </li>
                 <li className='ml-4 mr-4'>
                     <NavLink to='/' >Log Out</NavLink>
