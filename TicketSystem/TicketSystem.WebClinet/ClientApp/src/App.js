@@ -12,16 +12,18 @@ import './custom.md.css'
 import './custom.lg.css'
 import './custom.xl.css'
 
-const App = () => {
+const App = (props) => {
   return (
       <>
-          <Navbar />
-          <Switch>
-              <Route exact path='/' component={Home} />
-              <Route path='/ticket/:id' component={TicketDetail} />
-              <Route path='/signin' component={SignIn} />
-              <Route path='/create' component={CreateTicket} />
-          </Switch>
+          <BrowserRouter>
+              <Navbar />
+              <Switch>
+                  <Route exact path='/' component={Home} />
+                  <Route path='/ticket/:id' component={TicketDetail} />
+                  <Route path='/signin' component={SignIn} />
+                  <Route path='/create' component={CreateTicket} />
+              </Switch>
+          </BrowserRouter>
       </>
   )
 }

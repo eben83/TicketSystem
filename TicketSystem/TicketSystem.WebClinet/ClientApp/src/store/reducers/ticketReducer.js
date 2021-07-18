@@ -10,7 +10,10 @@
 }
 
 const ticketReducer = (state = initialState, action) => {
-    
+    switch (action.type) {
+        case 'CREATE_TICKET':
+            console.log('Ticket created', action.ticket)
+    }    
     return state
 }
 
