@@ -7,19 +7,15 @@ import './ticket-list.md.css'
 import './ticket-list.lg.css'
 import './ticket-list.xl.css'
 
-const TicketList = (props) => {
+const TicketList = ({tickets}) => {
     return (
         <>
             <div className='ticket-list d-flex flex-wrap justify-content-center'>
-                <TicketSummary />
-                <TicketSummary />
-                <TicketSummary />
-                <TicketSummary />
-                <TicketSummary />
-                <TicketSummary />
-                <TicketSummary />
-                <TicketSummary />
-                <TicketSummary />
+                {tickets && tickets.map(ticket => {
+                    return (
+                        <TicketSummary ticket={ticket} key={ticket.id} />
+                    )
+                })}
             </div>
         </>
     );
