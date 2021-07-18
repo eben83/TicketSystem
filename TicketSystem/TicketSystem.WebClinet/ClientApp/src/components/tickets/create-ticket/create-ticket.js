@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import { connect } from "react-redux";
+import { createTicket } from "../../../store/actions/ticketActions";
 
 import './create-ticket.xs.css'
 import './create-ticket.sm.css'
@@ -13,7 +15,7 @@ class CreateTicket extends Component {
         lastName: '',
         email: '',
         department: '',
-        comments: '',
+        comment: '',
     }
     
     handleChange = (e) => {
@@ -70,7 +72,7 @@ class CreateTicket extends Component {
                         <textarea
                             id='comment'
                             onChange={this.handleChange}
-                            placeholder='Comments'
+                            placeholder='Comment'
                         />
                             </div>
                             <div className='d-flex justify-content-center mt-2'>
@@ -83,4 +85,12 @@ class CreateTicket extends Component {
         )
     }
 }
-export default CreateTicket;
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        createTicket: (ticket) => dispatch(createTicket(ticket))
+    }
+}
+    
+
+export default connect(null, mapDispatchToProps) (CreateTicket);
