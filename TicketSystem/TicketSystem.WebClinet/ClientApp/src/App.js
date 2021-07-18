@@ -4,6 +4,7 @@ import Home  from './components/home/home';
 import Navbar from "./components/layout/navbar/navbar";
 import TicketDetail from "./components/tickets/ticket-detail/ticket-detail";
 import SignIn from './components/auth/signIn'
+import CreateTicket from "./components/tickets/create-ticket/create-ticket";
 
 import './custom.xs.css'
 import './custom.sm.css'
@@ -19,6 +20,7 @@ const App = () => {
               <Route exact path='/' component={Home} />
               <Route path='/ticket/:id' component={TicketDetail} />
               <Route path='/signin' component={SignIn} />
+              <Route path='/create' component={CreateTicket} />
           </Switch>
       </>
   )
