@@ -13,8 +13,13 @@ const ticketReducer = (state = initialState, action) => {
     switch (action.type) {
         case 'CREATE_TICKET':
             console.log('Ticket created', action.ticket)
+            return state;
+        case 'TICKET_CREATE_ERROR':
+            console.log('ticket create error', action.err)
+            return state
+        default:
+            return state
     }    
-    return state
 }
 
 export default ticketReducer
