@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import TicketList from "../tickets/ticket-list/ticket-list";
 import { connect } from 'react-redux'
+import { firestoreConnect } from "react-redux-firebase";
+import { compose } from 'redux'
 
 import './home.xs.css'
 
@@ -8,7 +10,7 @@ class Home extends Component {
     render() {
         
         const { tickets } = this.props
-        console.log(this.props)
+        // console.log(this.props)
         
         return (
             <>
@@ -22,8 +24,14 @@ class Home extends Component {
     }
 }
 const mapStateToProps = (state) => {
+    console.log("the data",state)
     return {
-        tickets: state.ticket.tickets
+        tickets: state.firestore.ordered.tickets
     }
 }
-export default connect(mapStateToProps)(Home);
+export default compose(
+    connect(mapStateToProps),
+    firestoreConnect([
+        { collection: 'tickets'}
+    ])
+)(Home);

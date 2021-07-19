@@ -15,6 +15,7 @@ class CreateTicket extends Component {
         lastName: '',
         email: '',
         department: '',
+        status: '',
         comment: '',
     }
     
@@ -38,6 +39,14 @@ class CreateTicket extends Component {
                         <div className='d-flex flex-column '>
                             <h1>Create Ticket</h1>
                             <div className=' mt-5'>
+                                <input
+                                    type='text'
+                                    id='title'
+                                    onChange={this.handleChange}
+                                    placeholder='Title'
+                                />
+                            </div>
+                            <div className=' mt-2'>
                                 <input
                                     type='text'
                                     id='firstName'
@@ -70,11 +79,19 @@ class CreateTicket extends Component {
                                 />
                             </div>
                             <div className=' mt-2'>
-                        <textarea
-                            id='comment'
-                            onChange={this.handleChange}
-                            placeholder='Comment'
-                        />
+                                <input
+                                    type='text'
+                                    id='status'
+                                    onChange={this.handleChange}
+                                    placeholder='Status'
+                                />
+                            </div>
+                            <div className=' mt-2'>
+                                <textarea
+                                    id='comment'
+                                    onChange={this.handleChange}
+                                    placeholder='Comment'
+                                />
                             </div>
                             <div className='d-flex justify-content-center mt-2'>
                                 <button className='btn btn-primary'>Create</button>
