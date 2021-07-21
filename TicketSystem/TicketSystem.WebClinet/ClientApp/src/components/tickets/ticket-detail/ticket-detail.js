@@ -7,6 +7,10 @@ import './ticket-details.xs.css'
 
 const TicketDetail = (props) => {
     const { ticket } = props
+
+    const first = parseInt(`${ticket.numberOne}`)
+    const second = parseInt(`${ticket.numberTwo}`)
+    
     if(ticket) {
        return (
            <>
@@ -33,6 +37,12 @@ const TicketDetail = (props) => {
                                <p>
                                    {ticket.comment}
                                </p>
+                           </div>
+                           <div className='d-flex'>
+                               <p className='mr-2'>Your Score IS:</p>
+                               {
+                                   first + second
+                               }
                            </div>
                        </div>
                    </div>
