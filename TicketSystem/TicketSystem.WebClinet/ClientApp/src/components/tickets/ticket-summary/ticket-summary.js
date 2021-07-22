@@ -3,9 +3,6 @@ import React, {} from 'react';
 import './ticket-summary.xs.css'
 
 const TicketSummary = ({ticket}) => {
-    const first = parseInt(`${ticket.numberOne}`)
-    const second = parseInt(`${ticket.numberTwo}`)
-    const sub = first + second
     
     return (
         <>

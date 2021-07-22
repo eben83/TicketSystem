@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import { connect } from 'react-redux'
+import { signIn } from '../../store/actions/authActions'
 
 import './signIn.xs.css'
 import './signIn.sm.css'
@@ -21,10 +23,12 @@ class SignIn extends Component {
     
     handleSubmit = (e) => {
         e.preventDefault()
-        console.log(this.state)
+        this.props.signIn(this.state)
+        // console.log(this.state)
     }
     
     render() {
+        const { authError } = this.props
         return (
             <>
                 <div className='sign-in p-4'>
@@ -49,6 +53,9 @@ class SignIn extends Component {
                             </div>
                             <div className='mt-3 d-flex justify-content-center'>
                                 <button className='btn badge-primary'>Login</button>
+                                <div className='text-center text-danger'>
+                                    {authError ? <div className='h1'>{authError}</div> : null}
+                                </div>
                             </div>
                         </div>
                     </form>
