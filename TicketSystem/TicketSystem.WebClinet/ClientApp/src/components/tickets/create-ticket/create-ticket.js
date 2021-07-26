@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import { connect } from "react-redux";
 import { createTicket } from "../../../store/actions/ticketActions";
+import { Redirect } from "react-router-dom"
 
 import './create-ticket.xs.css'
 import './create-ticket.sm.css'
@@ -32,6 +33,9 @@ class CreateTicket extends Component {
     }
     
     render() {
+        
+        const { auth } = this.props
+        if(!auth.uid) return <Redirect to='/' />
         return (
             <>
                 <div className='create-ticket'>
@@ -104,6 +108,12 @@ class CreateTicket extends Component {
     }
 }
 
+const mapStateToProps = (state) => {
+    return {
+        auth: state.firebase.auth
+    }
+}
+
 const mapDispatchToProps = (dispatch) => {
     return {
         createTicket: (ticket) => dispatch(createTicket(ticket))
@@ -111,4 +121,4 @@ const mapDispatchToProps = (dispatch) => {
 }
     
 
-export default connect(null, mapDispatchToProps) (CreateTicket);
+export default connect(mapStateToProps, mapDispatchToProps) (CreateTicket);

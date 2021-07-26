@@ -2,11 +2,15 @@ import React, {} from 'react';
 import { connect } from 'react-redux'
 import { firestoreConnect } from "react-redux-firebase";
 import { compose } from "redux";
+import {Redirect} from "react-router-dom";
 
 import './ticket-details.xs.css'
 
 const TicketDetail = (props) => {
-    const { ticket } = props
+    const { ticket, auth } = props
+    
+    if(!auth.uid) return <Redirect to='/signin' />
+    
 
     if(ticket) {
        return (
@@ -58,8 +62,10 @@ const mapStateToProps = (state, ownProps) => {
     const tickets = state.firestore.data.tickets
     const ticket = tickets ? tickets[id] : null
     return {
-        ticket : ticket
+        ticket : ticket,
+        auth: state.firebase.auth
     }
+    
 }
 export default compose(
     connect (mapStateToProps),
