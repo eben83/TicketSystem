@@ -6,9 +6,6 @@ const TicketSummary = ({ticket}) => {
     
     return (
         <>
-            <div>
-                {ticket && [ticket].reduce((total, ticket) => total + parseInt(`${ticket.numberOne}`) + parseInt(`${ticket.numberTwo}`), 0)}
-            </div>
             <div className="ticket-summary card m-2">
                 <div className="card-body text-center">
                     <div className='h3'>{ticket.title}</div>

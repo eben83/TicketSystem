@@ -15,9 +15,6 @@ class Home extends Component {
         return (
             <>
                 <div className='home'>
-                    <div>
-                        {tickets && tickets.reduce((total, tickets) => total + parseInt(`${tickets.numberOne}`) + parseInt(`${tickets.numberTwo}`), 0)}
-                    </div>
                     <div className=''>
                         <TicketList tickets={tickets}/>
                     </div>

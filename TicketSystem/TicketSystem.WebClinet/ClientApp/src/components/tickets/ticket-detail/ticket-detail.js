@@ -8,9 +8,6 @@ import './ticket-details.xs.css'
 const TicketDetail = (props) => {
     const { ticket } = props
 
-    const first = parseInt(`${ticket.numberOne}`)
-    const second = parseInt(`${ticket.numberTwo}`)
-    
     if(ticket) {
        return (
            <>
@@ -32,17 +29,15 @@ const TicketDetail = (props) => {
                                <div className='mr-2'>Date Created:</div>
                                <div>2 July 2021</div>
                            </div>
+                           <div className='d-flex'>
+                               <div className='mr-2'>Created by:</div>
+                               <div>{ticket.authorFirstName} {ticket.authorLastName}</div>
+                           </div>
                            <div className='d-flex mt-3'>
                                <div className='mr-2'>Comments:</div>
                                <p>
                                    {ticket.comment}
                                </p>
-                           </div>
-                           <div className='d-flex'>
-                               <p className='mr-2'>Your Score IS:</p>
-                               {
-                                   first + second
-                               }
                            </div>
                        </div>
                    </div>
