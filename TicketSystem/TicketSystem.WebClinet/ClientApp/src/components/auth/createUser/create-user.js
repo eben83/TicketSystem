@@ -22,6 +22,7 @@ class CreateUser extends Component {
         e.preventDefault()
         this.props.signUp(this.state)
         // console.log(this.state)
+        this.props.history.push('/')
     }
 
     render() {
