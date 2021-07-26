@@ -9,7 +9,7 @@ const TicketSummary = ({ticket}) => {
         <>
             <div className="ticket-summary card m-2">
                 <div className="card-body text-center">
-                    <div className='h3'>{ticket.title}</div>
+                    <div className='h3'>{ticket.department}</div>
                     <div className='d-flex align-items-center justify-content-center'>
                         <p>Status:</p>
                         <p>{ticket.status}</p>
@@ -23,6 +23,10 @@ const TicketSummary = ({ticket}) => {
                     <div className='d-flex justify-content-between'>
                         <p>Client :</p>
                         <p>{ticket.firstName} {ticket.lastName}</p>
+                    </div>
+                    <div className='d-flex justify-content-between'>
+                        <p>Agent :</p>
+                        <p>{ticket.authorFirstName} {ticket.authorLastName}</p>
                     </div>
                 </div>
                 
