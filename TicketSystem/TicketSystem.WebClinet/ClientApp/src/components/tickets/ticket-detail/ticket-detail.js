@@ -20,29 +20,41 @@ const TicketDetail = (props) => {
                    <div className='ticket-detail card'>
                        <div className='card-body d-flex flex-column align-items-center'>
                            <div className='h3'>{ticket.title}</div>
-                           <div >
-                               <div className='d-flex'>
-                                   <div className='mr-2'>Department:</div>
-                                   <div>{ticket.department}</div>
+                           <div className='row w-100'>
+                               <div className='col-12 col-md-6 pr-5 '>
+                                   <div className='d-flex'>
+                                       <div className='mr-2'>Department:</div>
+                                       <div>{ticket.department}</div>
+                                   </div>
+                                   <div className='d-flex'>
+                                       <div className='mr-2'>Status:</div>
+                                       <div>{ticket.status}</div>
+                                   </div>
+                                   <div className='d-flex'>
+                                       <div className='mr-2'>Date Created:</div>
+                                       <div>{moment(ticket.createAt.toDate().toString()).calendar()}</div>
+                                   </div>
+                                   <div className='d-flex'>
+                                       <div className='mr-2'>Created by:</div>
+                                       <div>{ticket.authorFirstName} {ticket.authorLastName}</div>
+                                   </div>
                                </div>
-                           </div>
-                           <div className='d-flex'>
-                               <div className='mr-2'>Status:</div>
-                               <div>{ticket.status}</div>
-                           </div>
-                           <div className='d-flex'>
-                               <div className='mr-2'>Date Created:</div>
-                               <div>{moment(ticket.createAt.toDate().toString()).calendar()}</div>
-                           </div>
-                           <div className='d-flex'>
-                               <div className='mr-2'>Created by:</div>
-                               <div>{ticket.authorFirstName} {ticket.authorLastName}</div>
-                           </div>
-                           <div className='d-flex mt-3'>
-                               <div className='mr-2'>Comments:</div>
-                               <p>
-                                   {ticket.comment}
-                               </p>
+                               <div className='col-12 col-md-6 pl-5'>
+                                   <div className='d-flex'>
+                                       <div   className='mr-2'>Client:</div>
+                                       <p>{ticket.firstName} {ticket.lastName}</p>
+                                   </div>
+                                   <div className='d-flex'>
+                                       <div   className='mr-2'>Client Contact:</div>
+                                       <p>{ticket.email}</p>
+                                   </div>
+                                   <div className='d-flex'>
+                                       <div className='mr-2'>Comments:</div>
+                                       <p>
+                                           {ticket.comment}
+                                       </p>
+                                   </div>
+                               </div>
                            </div>
                        </div>
                    </div>
