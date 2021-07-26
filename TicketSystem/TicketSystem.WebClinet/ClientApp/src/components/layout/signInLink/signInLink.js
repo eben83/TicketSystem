@@ -1,5 +1,8 @@
 import React, {} from 'react';
 import { NavLink} from "react-router-dom";
+import { connect } from 'react-redux'
+import { signOut } from "../../../store/actions/authActions";
+import { map } from '@firebase/util'
 
 import './signInLink.xs.css'
 
@@ -11,7 +14,7 @@ const SignInLink = (props) => {
                     <NavLink to='/create' >New Ticket</NavLink>
                 </li>
                 <li className='ml-4 mr-4'>
-                    <NavLink to='/' >Log Out</NavLink>
+                    <a onClick={props.signOut}>Log Out</a>
                 </li>
                 <li className='ml-4 mr-4 profile'>
                     <NavLink to='/'>EB</NavLink>
@@ -20,4 +23,10 @@ const SignInLink = (props) => {
         </>
     );
 }
-export default SignInLink;
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        signOut: () => dispatch(signOut())
+    }
+}
+export default connect(null, mapDispatchToProps) (SignInLink);

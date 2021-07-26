@@ -21,6 +21,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <Folder Include="ClientApp\src\components\auth\createUser" />
       <Folder Include="Controllers" />
     </ItemGroup>
 

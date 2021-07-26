@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux'
-import { signIn } from '../../store/actions/authActions'
+import { signIn } from '../../../store/actions/authActions'
 
 import './signIn.xs.css'
 import './signIn.sm.css'
@@ -51,12 +51,13 @@ class SignIn extends Component {
                                     onChange={this.handleChange}
                                 />
                             </div>
-                            <div className='mt-3 d-flex justify-content-center'>
+                            <div className='mt-3 d-flex justify-content-center flex-column'>
                                 <button className='btn badge-primary'>Login</button>
+                                <div className='text-center text-danger pt-3'>
+                                    {authError ? <div className='h1 text-danger'>{authError}</div> : null}
+                                </div>
                             </div>
-                            <div className='text-center text-danger pt-3'>
-                                {authError ? <div className='h1 text-danger'>{authError}</div> : null}
-                            </div>
+                            
                         </div>
                     </form>
                 </div>
