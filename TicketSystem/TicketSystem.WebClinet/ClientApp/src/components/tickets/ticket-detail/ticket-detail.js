@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { firestoreConnect } from "react-redux-firebase";
 import { compose } from "redux";
 import {Redirect} from "react-router-dom";
+import moment from 'moment'
 
 import './ticket-details.xs.css'
 
@@ -31,7 +32,7 @@ const TicketDetail = (props) => {
                            </div>
                            <div className='d-flex'>
                                <div className='mr-2'>Date Created:</div>
-                               <div>2 July 2021</div>
+                               <div>{moment(ticket.createAt.toDate().toString()).calendar()}</div>
                            </div>
                            <div className='d-flex'>
                                <div className='mr-2'>Created by:</div>

@@ -1,4 +1,5 @@
 import React, {} from 'react';
+import moment from 'moment'
 
 import './ticket-summary.xs.css'
 
@@ -13,7 +14,7 @@ const TicketSummary = ({ticket}) => {
                     {/*Figure out ticket id in number order*/}
                     <div className='d-flex justify-content-between'>
                         <p>Created on:</p>
-                        <p>1 July 2021</p>
+                        <p>{moment(ticket.createAt.toDate().toString()).calendar()}</p>
                     </div>
                     <div className='d-flex justify-content-between'>
                         <p>Client:</p>
