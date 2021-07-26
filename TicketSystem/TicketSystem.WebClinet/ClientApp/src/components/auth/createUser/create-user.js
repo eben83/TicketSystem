@@ -1,6 +1,7 @@
 ﻿import React, {Component} from 'react';
 import { connect } from "react-redux";
 import { Redirect } from 'react-router-dom'
+import { signUp } from '../../../store/actions/authActions'
 
 class CreateUser extends Component {
     state = {
@@ -19,12 +20,12 @@ class CreateUser extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault()
-        // this.props.signIn(this.state)
-        console.log(this.state)
+        this.props.signIn(this.state)
+        // console.log(this.state)
     }
 
     render() {
-        const { auth } = this.props
+        const { auth, authError } = this.props
         if(!auth.uid) return <Redirect to='/' />
         return (
             <>
@@ -74,6 +75,9 @@ class CreateUser extends Component {
                             </div>
                             <div className='mt-3 d-flex justify-content-center flex-column'>
                                 <button className='btn badge-primary'>Create</button>
+                                <div className='text-danger'>
+                                    {authError ? <div className='h3'>{authError}</div> : null}
+                                </div>
                             </div>
                         </div>
                     </form>
@@ -85,7 +89,14 @@ class CreateUser extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        auth: state.firebase.auth
+        auth: state.firebase.auth,
+        authError: state.auth.authError
     }
 }
-export default connect(mapStateToProps) (CreateUser);
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        signUp: (newUser) => dispatch(signUp(newUser))
+    }
+}
+export default connect(mapStateToProps, mapDispatchToProps) (CreateUser);
