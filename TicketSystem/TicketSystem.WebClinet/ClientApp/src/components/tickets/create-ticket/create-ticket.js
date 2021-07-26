@@ -93,24 +93,6 @@ class CreateTicket extends Component {
                                     placeholder='Comment'
                                 />
                             </div>
-                            <div>
-                                <div className=' mt-2'>
-                                    <input
-                                        type='number'
-                                        id='numberOne'
-                                        onChange={this.handleChange}
-                                        placeholder='Number 1'
-                                    />
-                                </div>
-                                <div className=' mt-2'>
-                                    <input
-                                        type='number'
-                                        id='numberTwo'
-                                        onChange={this.handleChange}
-                                        placeholder='Number 2'
-                                    />
-                                </div>
-                            </div>
                             <div className='d-flex justify-content-center mt-2'>
                                 <button className='btn btn-primary'>Create</button>
                             </div>
