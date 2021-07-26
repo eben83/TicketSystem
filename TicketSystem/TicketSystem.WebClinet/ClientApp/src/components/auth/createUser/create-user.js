@@ -20,7 +20,7 @@ class CreateUser extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault()
-        this.props.signIn(this.state)
+        this.props.signUp(this.state)
         // console.log(this.state)
     }
 
