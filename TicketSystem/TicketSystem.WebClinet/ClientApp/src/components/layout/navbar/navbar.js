@@ -12,13 +12,16 @@ import './navbar.lg.css'
 import './navbar.xl.css'
 
 const Navbar = (props) => {
+    
+    const { auth } = props
+    
+    const links = auth.uid ? <SignInLink /> : <SignOutLink />
     return (
         <>
             <navbar className='nav navbar navbar-expand-md h-auto d-flex '>
                 <div className='w-100 d-flex'>
                     <Link to='/'>Ticket</Link>
-                    <SignInLink />
-                    <SignOutLink />
+                    { auth.isLoaded && links }
                 </div>
             </navbar>
         </>
@@ -26,6 +29,8 @@ const Navbar = (props) => {
 }
 
 const mapStateToProps = (state) => {
-    return {}
+    return {
+        auth: state.firebase.auth
+    }
 }
 export default connect(mapStateToProps) (Navbar);
