@@ -13,9 +13,9 @@ import './navbar.xl.css'
 
 const Navbar = (props) => {
     
-    const { auth } = props
+    const { auth, profile } = props
     
-    const links = auth.uid ? <SignInLink /> : <SignOutLink />
+    const links = auth.uid ? <SignInLink profile={profile} /> : <SignOutLink />
     return (
         <>
             <navbar className='nav navbar navbar-expand-md h-auto d-flex '>
@@ -30,7 +30,8 @@ const Navbar = (props) => {
 
 const mapStateToProps = (state) => {
     return {
-        auth: state.firebase.auth
+        auth: state.firebase.auth,
+        profile: state.firebase.profile
     }
 }
 export default connect(mapStateToProps) (Navbar);

@@ -30,6 +30,7 @@ class CreateTicket extends Component {
         e.preventDefault()
         // console.log(this.state)
         this.props.createTicket(this.state)
+        this.props.history.push('/')
     }
     
     render() {
@@ -55,7 +56,7 @@ class CreateTicket extends Component {
                                     type='text'
                                     id='firstName'
                                     onChange={this.handleChange}
-                                    placeholder='First Name'
+                                    placeholder='Client First Name'
                                 />
                             </div>
                             <div className=' mt-2'>
@@ -63,7 +64,7 @@ class CreateTicket extends Component {
                                     type='text'
                                     id='lastName'
                                     onChange={this.handleChange}
-                                    placeholder='Last Name'
+                                    placeholder='Client Last Name'
                                 />
                             </div>
                             <div className=' mt-2'>
@@ -71,9 +72,9 @@ class CreateTicket extends Component {
                                     type='email'
                                     id='email'
                                     onChange={this.handleChange}
-                                    placeholder='Email'
+                                    placeholder='Client Email'
                                 />
-                            </div>
+                            </div> 
                             <div className=' mt-2'>
                                 <input
                                     type='text'

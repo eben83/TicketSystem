@@ -16,8 +16,8 @@ const TicketSummary = ({ticket}) => {
                         <p>1 July 2021</p>
                     </div>
                     <div className='d-flex justify-content-between'>
-                        <p>Created by:</p>
-                        <p>Eben</p>
+                        <p>Client:</p>
+                        <p>{ticket.firstName} {ticket.lastName}</p>
                     </div>
                 </div>
                 

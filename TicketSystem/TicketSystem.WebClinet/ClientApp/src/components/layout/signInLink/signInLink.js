@@ -1,4 +1,4 @@
-import React, {} from 'react';
+import React, { Profiler } from 'react';
 import { NavLink} from "react-router-dom";
 import { connect } from 'react-redux'
 import { signOut } from "../../../store/actions/authActions";
@@ -19,8 +19,8 @@ const SignInLink = (props) => {
                 <li className='ml-4 mr-4'>
                     <a onClick={props.signOut}>Log Out</a>
                 </li>
-                <li className='ml-4 mr-4 profile'>
-                    <NavLink to='/'>EB</NavLink>
+                <li className='ml-4 mr-4 profile font-weight-bolder'>
+                    <NavLink to='/'>{props.profile.initials}</NavLink>
                 </li>
             </ul>
         </>
