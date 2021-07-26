@@ -53,9 +53,9 @@ class SignIn extends Component {
                             </div>
                             <div className='mt-3 d-flex justify-content-center'>
                                 <button className='btn badge-primary'>Login</button>
-                                <div className='text-center text-danger'>
-                                    {authError ? <div className='h1'>{authError}</div> : null}
-                                </div>
+                            </div>
+                            <div className='text-center text-danger pt-3'>
+                                {authError ? <div className='h1 text-danger'>{authError}</div> : null}
                             </div>
                         </div>
                     </form>
@@ -65,4 +65,16 @@ class SignIn extends Component {
     }
 }
 
-export default SignIn;
+const mapStateToProps = (state) => {
+    return {
+        authError: state.auth.authError
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        signIn : (creds) => dispatch(signIn(creds))
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps) (SignIn);
