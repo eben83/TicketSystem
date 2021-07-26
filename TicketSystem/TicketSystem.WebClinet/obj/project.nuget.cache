@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "dgSpecHash": "Z0r1ic7nTie0Mn00TMrgYuHAgc8MvE86FCsPoGnNcPfrlDOSuFQumImrZCOuEYiV4DA6tjga2Hl+2v3/61XcIg==",
+  "success": true,
+  "projectFilePath": "C:\\Projects\\TicketSystem\\TicketSystem\\TicketSystem.WebClinet\\TicketSystem.WebClinet.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Eben Burger\\.nuget\\packages\\microsoft.aspnetcore.spaservices.extensions\\5.0.4\\microsoft.aspnetcore.spaservices.extensions.5.0.4.nupkg.sha512",
+    "C:\\Users\\Eben Burger\\.nuget\\packages\\microsoft.extensions.fileproviders.abstractions\\5.0.0\\microsoft.extensions.fileproviders.abstractions.5.0.0.nupkg.sha512",
+    "C:\\Users\\Eben Burger\\.nuget\\packages\\microsoft.extensions.fileproviders.physical\\5.0.0\\microsoft.extensions.fileproviders.physical.5.0.0.nupkg.sha512",
+    "C:\\Users\\Eben Burger\\.nuget\\packages\\microsoft.extensions.filesystemglobbing\\5.0.0\\microsoft.extensions.filesystemglobbing.5.0.0.nupkg.sha512",
+    "C:\\Users\\Eben Burger\\.nuget\\packages\\microsoft.extensions.primitives\\5.0.0\\microsoft.extensions.primitives.5.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
