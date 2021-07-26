@@ -57,7 +57,6 @@ class SignIn extends Component {
                                     {authError ? <div className='h1 text-danger'>{authError}</div> : null}
                                 </div>
                             </div>
-                            
                         </div>
                     </form>
                 </div>

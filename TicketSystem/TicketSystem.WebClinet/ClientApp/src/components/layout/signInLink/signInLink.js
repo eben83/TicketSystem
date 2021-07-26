@@ -14,6 +14,9 @@ const SignInLink = (props) => {
                     <NavLink to='/create' >New Ticket</NavLink>
                 </li>
                 <li className='ml-4 mr-4'>
+                    <NavLink to='/signup' >New User</NavLink>
+                </li>
+                <li className='ml-4 mr-4'>
                     <a onClick={props.signOut}>Log Out</a>
                 </li>
                 <li className='ml-4 mr-4 profile'>
