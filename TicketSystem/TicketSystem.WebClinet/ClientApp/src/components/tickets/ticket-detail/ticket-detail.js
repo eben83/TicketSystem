@@ -38,6 +38,16 @@ const TicketDetail = (props) => {
                                        <div className='mr-2'>Created by:</div>
                                        <div>{ticket.authorFirstName} {ticket.authorLastName}</div>
                                    </div>
+                                   <div className='d-flex'>
+                                       <div className='mr-2'>Longitude:</div>
+                                       <p>
+                                           {ticket.longitude}
+                                       </p>
+                                       <div className='ml-2'>Latitude:</div>
+                                       <p>
+                                           {ticket.latitude}
+                                       </p>
+                                   </div>
                                </div>
                                <div className='col-12 col-md-6 pl-5'>
                                    <div className='d-flex'>
@@ -54,6 +64,7 @@ const TicketDetail = (props) => {
                                            {ticket.comment}
                                        </p>
                                    </div>
+                                   
                                </div>
                            </div>
                        </div>

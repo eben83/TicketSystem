@@ -13,16 +13,41 @@ import {firestoreConnect} from "react-redux-firebase";
 
 class CreateTicket extends Component {
     
-    state = {
-        firstName: '',
-        lastName: '',
-        email: '',
-        department: '',
-        status: '',
-        comment: '',
-        ticketNumber: ''
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            firstName: '',
+            lastName: '',
+            email: '',
+            department: '',
+            status: '',
+            comment: '',
+            longitude: '',
+            latitude: ''
+        }
+        this.getLocation = this.getLocation.bind(this)
     }
     
+    componentDidMount() {
+        this.getLocation()
+    }
+    
+    getLocation() {
+        const location = window.navigator && window.navigator.geolocation
+
+        if (location) {
+            location.getCurrentPosition((position) => {
+                this.setState({
+                    latitude: position.coords.latitude,
+                    longitude: position.coords.longitude,
+                })
+            }, (error) => {
+                this.setState({ latitude: 'err-latitude', longitude: 'err-longitude' })
+            })
+        }
+    }
+
     handleChange = (e) => {
         this.setState({
             [e.target.id]: e.target.value,
@@ -42,7 +67,7 @@ class CreateTicket extends Component {
     
     render() {
         
-        const { auth, tickets } = this.props
+        const { auth, tickets, latitude, longitude } = this.props
         if(!auth.uid) return <Redirect to='/' />
         
         return (
@@ -57,6 +82,7 @@ class CreateTicket extends Component {
                                     id='title'
                                     onChange={this.handleChange}
                                     placeholder='Title'
+                                    required
                                 />
                             </div>
                             <div className=' mt-2'>
@@ -65,6 +91,7 @@ class CreateTicket extends Component {
                                     id='firstName'
                                     onChange={this.handleChange}
                                     placeholder='Client First Name'
+                                    required
                                 />
                             </div>
                             <div className=' mt-2'>
@@ -73,6 +100,7 @@ class CreateTicket extends Component {
                                     id='lastName'
                                     onChange={this.handleChange}
                                     placeholder='Client Last Name'
+                                    required
                                 />
                             </div>
                             <div className=' mt-2'>
@@ -81,6 +109,7 @@ class CreateTicket extends Component {
                                     id='email'
                                     onChange={this.handleChange}
                                     placeholder='Client Email'
+                                    required
                                 />
                             </div>
                             <div className=' mt-2'>
@@ -89,6 +118,7 @@ class CreateTicket extends Component {
                                     id='department'
                                     onChange={this.handleChange}
                                     placeholder='Department'
+                                    required
                                 />
                             </div>
                             <div className=' mt-2'>
@@ -97,6 +127,7 @@ class CreateTicket extends Component {
                                     id='status'
                                     onChange={this.handleChange}
                                     placeholder='Status'
+                                    required
                                 />
                             </div>
                             <div className=' mt-2'>
@@ -104,7 +135,24 @@ class CreateTicket extends Component {
                                 id='comment'
                                 onChange={this.handleChange}
                                 placeholder='Comment'
+                                required
                             />
+                            </div>
+                            <div className='invisible'>
+                                <input
+                                    type='text'
+                                    id='longitude'
+                                    value={longitude}
+                                    onChange={this.handleChange}
+                                />
+                            </div>
+                            <div className='invisible'>
+                                <input
+                                    type='text'
+                                    id='latitude'
+                                    value={latitude}
+                                    onChange={this.handleChange}
+                                />
                             </div>
                             <div className='d-flex justify-content-center mt-2'>
                                 <button className='btn btn-primary'>Create</button>
