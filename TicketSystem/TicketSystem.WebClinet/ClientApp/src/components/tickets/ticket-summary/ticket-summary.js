@@ -14,8 +14,12 @@ const TicketSummary = ({ticket}) => {
                         <p>Status:</p>
                         <p>{ticket.status}</p>
                     </div>
-                    <p>Ticket ID:</p>
-                    {/*Figure out ticket id in number order*/}
+                    <div className='d-flex justify-content-between'>
+                        <p>Ticket ID:</p>
+                        <div>
+                            {ticket.id.slice(0,6)}
+                        </div>
+                    </div>
                     <div className='d-flex justify-content-between'>
                         <p>Created:</p>
                         <p>{moment(ticket.createAt.toDate().toString()).calendar()}</p>
