@@ -8,6 +8,8 @@ import './create-ticket.sm.css'
 import './create-ticket.md.css'
 import './create-ticket.lg.css'
 import './create-ticket.xl.css'
+import {compose} from "redux";
+import {firestoreConnect} from "react-redux-firebase";
 
 class CreateTicket extends Component {
     
@@ -18,6 +20,7 @@ class CreateTicket extends Component {
         department: '',
         status: '',
         comment: '',
+        ticketNumber: ''
     }
     
     handleChange = (e) => {
@@ -33,10 +36,15 @@ class CreateTicket extends Component {
         this.props.history.push('/')
     }
     
+    handleTicketNumber = (e) => {
+        this.setState({ticketNumber: e.target.value})
+    }
+    
     render() {
         
-        const { auth } = this.props
+        const { auth, tickets } = this.props
         if(!auth.uid) return <Redirect to='/' />
+        
         return (
             <>
                 <div className='create-ticket'>
@@ -74,7 +82,7 @@ class CreateTicket extends Component {
                                     onChange={this.handleChange}
                                     placeholder='Client Email'
                                 />
-                            </div> 
+                            </div>
                             <div className=' mt-2'>
                                 <input
                                     type='text'
@@ -92,11 +100,11 @@ class CreateTicket extends Component {
                                 />
                             </div>
                             <div className=' mt-2'>
-                                <textarea
-                                    id='comment'
-                                    onChange={this.handleChange}
-                                    placeholder='Comment'
-                                />
+                            <textarea
+                                id='comment'
+                                onChange={this.handleChange}
+                                placeholder='Comment'
+                            />
                             </div>
                             <div className='d-flex justify-content-center mt-2'>
                                 <button className='btn btn-primary'>Create</button>
@@ -111,7 +119,8 @@ class CreateTicket extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        auth: state.firebase.auth
+        auth: state.firebase.auth,
+        tickets: state.firestore.ordered.tickets
     }
 }
 
@@ -122,4 +131,9 @@ const mapDispatchToProps = (dispatch) => {
 }
     
 
-export default connect(mapStateToProps, mapDispatchToProps) (CreateTicket);
+export default compose(
+    connect(mapStateToProps, mapDispatchToProps),
+    firestoreConnect([
+        {collection: 'tickets'}
+    ])
+) (CreateTicket);
