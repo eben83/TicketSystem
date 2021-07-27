@@ -9,24 +9,33 @@ import './home.xs.css'
 class Home extends Component {
     render() {
         
-        const { tickets } = this.props
+        const { tickets, auth } = this.props
         // console.log(this.props)
         
-        return (
-            <>
-                <div className='home'>
-                    <div className=''>
-                        <TicketList tickets={tickets}/>
+        if(auth.isLoaded) {
+            return (
+                <>
+                    <div className='home'>
+                        <div className=''>
+                            <TicketList tickets={tickets}/>
+                        </div>
                     </div>
+                </>
+            );
+        } else {
+            return (
+                <div>
+                    <h1>Loading....</h1>
                 </div>
-            </>
-        );
+            )
+        }
     }
 }
 const mapStateToProps = (state) => {
     console.log("the data",state)
     return {
-        tickets: state.firestore.ordered.tickets
+        tickets: state.firestore.ordered.tickets,
+        auth: state.firebase.auth
     }
 }
 export default compose(
