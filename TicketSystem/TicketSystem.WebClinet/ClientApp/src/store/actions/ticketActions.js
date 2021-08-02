@@ -1,4 +1,6 @@
-﻿export const createTicket = (ticket) => {
+﻿import {getFirebase} from "react-redux-firebase";
+
+export const createTicket = (ticket) => {
     return (dispatch, getState, {getFirebase, getFirestore}) => {
         const firestore = getFirestore();
         const profile = getState().firebase.profile;
@@ -13,6 +15,19 @@
             dispatch({type: 'CREATE_TICKET', ticket})
         }) .catch ((err) => {
             dispatch({type: 'TICKET_CREATE_ERROR', err})
+        })
+    }
+}
+
+export const removeTicket =(ticket) => {
+    return (dispatch, getState, {getFirebase}) => {
+        const firestore = getFirebase().firestore()
+        
+        firestore.collection('tickets').doc(ticket.id).delete()
+            .then(() => {
+                dispatch({type: 'REMOVE_TICKET'})
+            }).catch((err) => {
+                dispatch({type: 'REMOVE_TICKET_ERROR', err})
         })
     }
 }

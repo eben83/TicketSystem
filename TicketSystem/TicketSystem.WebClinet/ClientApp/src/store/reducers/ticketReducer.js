@@ -17,6 +17,12 @@ const ticketReducer = (state = initialState, action) => {
         case 'TICKET_CREATE_ERROR':
             console.log('ticket create error', action.err)
             return state
+        case 'REMOVE_TICKET':
+            console.log('Ticket removed', action.ticket)
+            return state
+        case 'REMOVE_TICKET_ERROR':
+            console.log('ticket remove error', action.err)
+            return state
         default:
             return state
     }    
