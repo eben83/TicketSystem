@@ -5,6 +5,7 @@ import { compose } from 'redux'
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {Link} from "react-router-dom";
 import TicketDelete from "../tickets/ticket-detail/ticket-delete";
+import moment from "moment";
 
 import {faInfoCircle} from "@fortawesome/free-solid-svg-icons";
 
@@ -20,7 +21,7 @@ const Home = ({tickets, auth}) => {
                             <table className='table'>
                                 <thead>
                                 <tr>
-                                    {/*<th>Date</th>*/}
+                                    <th scope="col">Date</th>
                                     <th scope="col">Department</th>
                                     <th scope="col">Created by</th>
                                     <th scope="col">status</th>
@@ -31,6 +32,7 @@ const Home = ({tickets, auth}) => {
                                 {tickets && tickets.map(ticket => {
                                     return (
                                         <tr>
+                                            <td>{moment(ticket.createAt.toDate().toString()).calendar()}</td>
                                             <td>{ticket.department}</td>
                                             <td>{ticket.authorFirstName} {ticket.authorLastName}</td>
                                             <td>{ticket.status}</td>
