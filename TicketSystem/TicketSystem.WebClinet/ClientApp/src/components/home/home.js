@@ -24,7 +24,7 @@ class Home extends Component {
             );
         } else {
             return (
-                <div>
+                <div className='d-flex text-center mt-5 pt-5'>
                     <h1>Loading....</h1>
                 </div>
             )
