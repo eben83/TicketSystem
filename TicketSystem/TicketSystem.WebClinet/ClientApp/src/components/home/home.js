@@ -4,19 +4,14 @@ import { firestoreConnect } from "react-redux-firebase";
 import { compose } from 'redux'
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {Link} from "react-router-dom";
-import {removeTicket} from "../../store/actions/ticketActions";
-import {faInfoCircle, faTrashAlt} from "@fortawesome/free-solid-svg-icons";
+import TicketDelete from "../tickets/ticket-detail/ticket-delete";
+
+import {faInfoCircle} from "@fortawesome/free-solid-svg-icons";
 
 import './home.xs.css'
 
-const Home = ({tickets, auth, removeTicket}) => {
-
-    const handleDelete = (ticket) => {
-        removeTicket(ticket)
-    }
-        
-        // console.log(this.props)
-        
+const Home = ({tickets, auth}) => {
+    
         if(auth.isLoaded) {
             return (
                 <>
@@ -39,19 +34,16 @@ const Home = ({tickets, auth, removeTicket}) => {
                                             <td>{ticket.department}</td>
                                             <td>{ticket.authorFirstName} {ticket.authorLastName}</td>
                                             <td>{ticket.status}</td>
-                                            
                                             <td className='d-flex'>
                                                 <Link to={'/ticket/' + ticket.id} className='pr-3'>
-                                                    <FontAwesomeIcon icon={faInfoCircle} />
+                                                <FontAwesomeIcon icon={faInfoCircle} />
                                                 </Link>
-                                                <div onClick={() => handleDelete(ticket)}>
-                                                    <FontAwesomeIcon  icon={faTrashAlt} />
-                                                </div>
-                                            </td>
-                                            
+                                                <TicketDelete ticket={ticket}/>
+                                                </td>
                                         </tr>
                                     )
                                 })}
+                                
                                 </tbody>
                             </table>
                             
@@ -68,21 +60,16 @@ const Home = ({tickets, auth, removeTicket}) => {
         }
 }
 const mapStateToProps = (state) => {
-    console.log("the data",state)
     return {
         tickets: state.firestore.ordered.tickets,
         auth: state.firebase.auth
     }
 }
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-        removeTicket: ticket => dispatch(removeTicket(ticket))
-    }
-}
+
 
 export default compose(
-    connect(mapStateToProps, mapDispatchToProps),
+    connect(mapStateToProps),
     firestoreConnect([
         { collection: 'tickets', orderBy: ['createAt', 'desc']}
     ])
