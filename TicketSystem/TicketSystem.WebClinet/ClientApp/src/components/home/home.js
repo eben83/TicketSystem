@@ -43,7 +43,6 @@ const Home = ({tickets, auth}) => {
                                         </tr>
                                     )
                                 })}
-                                
                                 </tbody>
                             </table>
                             
@@ -53,8 +52,8 @@ const Home = ({tickets, auth}) => {
             );
         } else {
             return (
-                <div className='d-flex text-center mt-5 pt-5'>
-                    <h1>Loading....</h1>
+                <div className='d-flex  mt-5 pt-5 w-100'>
+                    <h1 className='text-center'>Loading....</h1>
                 </div>
             )
         }
