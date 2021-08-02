@@ -2,14 +2,14 @@ import React, {Component} from 'react';
 import { connect } from "react-redux";
 import { createTicket } from "../../../store/actions/ticketActions";
 import { Redirect } from "react-router-dom"
+import {compose} from "redux";
+import {firestoreConnect} from "react-redux-firebase";
 
 import './create-ticket.xs.css'
 import './create-ticket.sm.css'
 import './create-ticket.md.css'
 import './create-ticket.lg.css'
 import './create-ticket.xl.css'
-import {compose} from "redux";
-import {firestoreConnect} from "react-redux-firebase";
 
 class CreateTicket extends Component {
     
@@ -17,6 +17,7 @@ class CreateTicket extends Component {
         super(props);
 
         this.state = {
+            title: '',
             firstName: '',
             lastName: '',
             email: '',
